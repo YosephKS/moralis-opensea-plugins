@@ -1,15 +1,13 @@
 import React, { useEffect, useMemo } from "react";
 import { useMoralis } from "react-moralis";
 import {
-	Grid,
-	GridItem,
-	Tabs,
-	TabList,
-	TabPanels,
-	Tab,
-	TabPanel,
+	Flex,
+	Box,
+	Spacer,
+	Heading,
 	Button,
 	Stack,
+	Input,
 } from "@chakra-ui/react";
 import "./App.css";
 
@@ -96,34 +94,32 @@ function App() {
 
 	return (
 		<>
-			<Grid templateColumns="repeat(5, 1fr)" gap={4} sx={{ margin: 2 }}>
-				<GridItem colSpan={2} h="10">
-					Moralis OpenSea
-				</GridItem>
-				<GridItem colStart={4} colEnd={6} h="10" bg="papayawhip">
-					<button onClick={() => authenticate()}>Connect to Metamask</button>
-				</GridItem>
-			</Grid>
-			<Tabs variant="soft-rounded" colorScheme="facebook">
-				<TabList>
-					<Tab>Buy</Tab>
-					<Tab>Sell</Tab>
-				</TabList>
-				<TabPanels>
-					<TabPanel>
-						<Stack direction="row" spacing={4}>
-							<Button onClick={getAsset}>Get Asset</Button>
-							<Button onClick={getOrder}>Get Order</Button>
-							<Button onClick={createBuyOrder}>Create Buy Order</Button>
-						</Stack>
-					</TabPanel>
-					<TabPanel>
-						<Button onClick={getAsset}>Get Asset</Button>
-						<Button onClick={getOrder}>Get Order</Button>
+			<Flex sx={{ margin: 3 }}>
+				<Box p="2">
+					<Heading size="md">Moralis OpenSea</Heading>
+				</Box>
+				<Spacer />
+				<Box>
+					<Button colorScheme="teal" onClick={() => authenticate()}>
+						Connect to Metamask
+					</Button>
+				</Box>
+			</Flex>
+			<Flex sx={{ margin: 3 }}>
+				<Box w="45vw">
+					<Input placeholder="Basic usage" />
+				</Box>
+			</Flex>
+			<Stack direction="row" spacing={4} sx={{ margin: 3 }}>
+				<Button onClick={getAsset}>Get Asset</Button>
+				<Button onClick={getOrder}>Get Order</Button>
+				{isAuthenticated && (
+					<>
+						<Button onClick={createBuyOrder}>Create Buy Order</Button>
 						<Button onClick={createSellOrder}>Create Sell Order</Button>
-					</TabPanel>
-				</TabPanels>
-			</Tabs>
+					</>
+				)}
+			</Stack>
 		</>
 	);
 }
