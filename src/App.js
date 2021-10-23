@@ -31,9 +31,9 @@ function App() {
 		const res = await Moralis.Plugins.opensea.getOrders({
 			network: "testnet",
 			tokenAddress: "0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF",
-			tokenId: "5570",
-			orderSide: "buyOrders",
-			page: 1, // pagination shows 20 orders each page
+			tokenId: "5770",
+			orderSide: 0,
+			// page: 5, // pagination shows 20 orders each page
 		});
 		console.log(res);
 	};
@@ -61,7 +61,7 @@ function App() {
 			tokenAddress: "0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF",
 			tokenId: "5770",
 			tokenType: "ERC721",
-			amount: 0.5,
+			amount: 0.00001,
 			userAddress: web3Account,
 			paymentTokenAddress: "0xc778417e063141139fce010982780140aa0cd5ab",
 		});
