@@ -1,5 +1,16 @@
 import React, { useEffect, useMemo } from "react";
 import { useMoralis } from "react-moralis";
+import {
+	Grid,
+	GridItem,
+	Tabs,
+	TabList,
+	TabPanels,
+	Tab,
+	TabPanel,
+	Button,
+	Stack,
+} from "@chakra-ui/react";
 import "./App.css";
 
 function App() {
@@ -84,17 +95,36 @@ function App() {
 	}, [isAuthenticated]);
 
 	return (
-		<div className="App">
-			<button onClick={() => authenticate()}>Connect to Metamask</button>
-			<button onClick={getAsset}>Get Asset</button>
-			<button onClick={getOrder}>Get Order</button>
-			{isAuthenticated && (
-				<>
-					<button onClick={createSellOrder}>Create Sell Order</button>
-					<button onClick={createBuyOrder}>Create Buy Order</button>
-				</>
-			)}
-		</div>
+		<>
+			<Grid templateColumns="repeat(5, 1fr)" gap={4} sx={{ margin: 2 }}>
+				<GridItem colSpan={2} h="10">
+					Moralis OpenSea
+				</GridItem>
+				<GridItem colStart={4} colEnd={6} h="10" bg="papayawhip">
+					<button onClick={() => authenticate()}>Connect to Metamask</button>
+				</GridItem>
+			</Grid>
+			<Tabs variant="soft-rounded" colorScheme="facebook">
+				<TabList>
+					<Tab>Buy</Tab>
+					<Tab>Sell</Tab>
+				</TabList>
+				<TabPanels>
+					<TabPanel>
+						<Stack direction="row" spacing={4}>
+							<Button onClick={getAsset}>Get Asset</Button>
+							<Button onClick={getOrder}>Get Order</Button>
+							<Button onClick={createBuyOrder}>Create Buy Order</Button>
+						</Stack>
+					</TabPanel>
+					<TabPanel>
+						<Button onClick={getAsset}>Get Asset</Button>
+						<Button onClick={getOrder}>Get Order</Button>
+						<Button onClick={createSellOrder}>Create Sell Order</Button>
+					</TabPanel>
+				</TabPanels>
+			</Tabs>
+		</>
 	);
 }
 
