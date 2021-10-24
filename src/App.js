@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useMoralis } from "react-moralis";
 import {
 	Flex,
@@ -8,6 +8,8 @@ import {
 	Button,
 	Stack,
 	Input,
+	NumberInput,
+	NumberInputField,
 } from "@chakra-ui/react";
 import "./App.css";
 
@@ -15,13 +17,14 @@ function App() {
 	const {
 		Moralis,
 		user,
+		logout,
 		authenticate,
 		enableWeb3,
 		isInitialized,
 		isAuthenticated,
 		isWeb3Enabled,
 	} = useMoralis();
-
+	const [values, setValues] = useState({ tokenAddress: "", tokenId: "" });
 	const web3Account = useMemo(
 		() => isAuthenticated && user.get("accounts")[0],
 		[user, isAuthenticated],
@@ -30,8 +33,8 @@ function App() {
 	const getAsset = async () => {
 		const res = await Moralis.Plugins.opensea.getAsset({
 			network: "testnet",
-			tokenAddress: "0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF",
-			tokenId: "5770",
+			tokenAddress: values.tokenAddress,
+			tokenId: values.tokenId,
 		});
 		console.log(res);
 	};
@@ -39,10 +42,10 @@ function App() {
 	const getOrder = async () => {
 		const res = await Moralis.Plugins.opensea.getOrders({
 			network: "testnet",
-			tokenAddress: "0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF",
-			tokenId: "5770",
+			tokenAddress: values.tokenAddress,
+			tokenId: values.tokenId,
 			orderSide: 0,
-			// page: 5, // pagination shows 20 orders each page
+			page: 1, // pagination shows 20 orders each page
 		});
 		console.log(res);
 	};
@@ -54,28 +57,30 @@ function App() {
 
 		await Moralis.Plugins.opensea.createSellOrder({
 			network: "testnet",
-			tokenAddress: "0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF",
-			tokenId: "0",
+			tokenAddress: values.tokenAddress,
+			tokenId: values.tokenId,
 			tokenType: "ERC1155",
-			userAddress: "0x7fB3948c368A943e4EFE848F251E4f254dA1a2b2",
+			userAddress: web3Account,
 			startAmount,
 			endAmount,
 			expirationTime: startAmount > endAmount && expirationTime, // Only set if you startAmount > endAmount
 		});
+
+		console.log("Create Sell Order Successful");
 	};
 
 	const createBuyOrder = async () => {
-		const res = await Moralis.Plugins.opensea.createBuyOrder({
+		await Moralis.Plugins.opensea.createBuyOrder({
 			network: "testnet",
-			tokenAddress: "0x16baF0dE678E52367adC69fD067E5eDd1D33e3bF",
-			tokenId: "5770",
+			tokenAddress: values.tokenAddress,
+			tokenId: values.tokenId,
 			tokenType: "ERC721",
-			amount: 0.00001,
+			amount: 0.0001,
 			userAddress: web3Account,
 			paymentTokenAddress: "0xc778417e063141139fce010982780140aa0cd5ab",
 		});
 
-		console.log(res);
+		console.log("Create Buy Order Successful");
 	};
 
 	useEffect(() => {
@@ -100,14 +105,44 @@ function App() {
 				</Box>
 				<Spacer />
 				<Box>
-					<Button colorScheme="teal" onClick={() => authenticate()}>
-						Connect to Metamask
-					</Button>
+					{isAuthenticated ? (
+						<Flex justifyContent="center" alignItems="center">
+							<div>{web3Account}</div>
+							<Button
+								colorScheme="teal"
+								sx={{ ml: 3 }}
+								onClick={() => logout()}
+							>
+								Logout
+							</Button>
+						</Flex>
+					) : (
+						<Button colorScheme="teal" onClick={() => authenticate()}>
+							Connect to Metamask
+						</Button>
+					)}
 				</Box>
 			</Flex>
 			<Flex sx={{ margin: 3 }}>
-				<Box w="45vw">
-					<Input placeholder="Basic usage" />
+				<Box w="45vw" sx={{ mr: 3 }}>
+					<Input
+						sx={{ borderColor: "1px solid black" }}
+						placeholder="NFT Token Address"
+						onChange={(e) =>
+							setValues({ ...values, tokenAddress: e.target.value })
+						}
+					/>
+				</Box>
+				<Box w="10vw">
+					<NumberInput
+						min={0}
+						value={values.tokenId}
+						onChange={(valueString) =>
+							setValues({ ...values, tokenId: valueString })
+						}
+					>
+						<NumberInputField sx={{ borderColor: "1px solid black" }} />
+					</NumberInput>
 				</Box>
 			</Flex>
 			<Stack direction="row" spacing={4} sx={{ margin: 3 }}>
