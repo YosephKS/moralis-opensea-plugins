@@ -15,12 +15,12 @@ import "./App.css";
 
 function App() {
 	const {
-		Moralis,
+		// Moralis,
 		user,
 		logout,
 		authenticate,
 		enableWeb3,
-		isInitialized,
+		// isInitialized,
 		isAuthenticated,
 		isWeb3Enabled,
 	} = useMoralis();
@@ -30,63 +30,28 @@ function App() {
 		[user, isAuthenticated],
 	);
 
-	const getAsset = async () => {
-		const res = await Moralis.Plugins.opensea.getAsset({
-			network: "testnet",
-			tokenAddress: values.tokenAddress,
-			tokenId: values.tokenId,
-		});
-		console.log(res);
-	};
+	/**
+	 * Get NFT Asset Data from OpenSea
+	 */
+	const getAsset = async () => {};
 
-	const getOrder = async () => {
-		const res = await Moralis.Plugins.opensea.getOrders({
-			network: "testnet",
-			tokenAddress: values.tokenAddress,
-			tokenId: values.tokenId,
-			orderSide: 0,
-			page: 1, // pagination shows 20 orders each page
-		});
-		console.log(res);
-	};
+	/**
+	 * Get NFT Orders Data from OpenSea
+	 */
+	const getOrder = async () => {};
 
-	const createSellOrder = async () => {
-		const expirationTime = Math.round(Date.now() / 1000 + 60 * 60 * 24);
-		const startAmount = 1;
-		const endAmount = 1;
+	/**
+	 * Create Sell Orders for an NFT
+	 */
+	const createSellOrder = async () => {};
 
-		await Moralis.Plugins.opensea.createSellOrder({
-			network: "testnet",
-			tokenAddress: values.tokenAddress,
-			tokenId: values.tokenId,
-			tokenType: "ERC1155",
-			userAddress: web3Account,
-			startAmount,
-			endAmount,
-			expirationTime: startAmount > endAmount && expirationTime, // Only set if you startAmount > endAmount
-		});
-
-		console.log("Create Sell Order Successful");
-	};
-
-	const createBuyOrder = async () => {
-		await Moralis.Plugins.opensea.createBuyOrder({
-			network: "testnet",
-			tokenAddress: values.tokenAddress,
-			tokenId: values.tokenId,
-			tokenType: "ERC721",
-			amount: 0.0001,
-			userAddress: web3Account,
-			paymentTokenAddress: "0xc778417e063141139fce010982780140aa0cd5ab",
-		});
-
-		console.log("Create Buy Order Successful");
-	};
+	/**
+	 * Create Buy Orders for an NFT
+	 */
+	const createBuyOrder = async () => {};
 
 	useEffect(() => {
-		if (isInitialized) {
-			Moralis.initPlugins();
-		}
+		// Initial Moralis Plugins
 		// eslint-disable-next-line
 	}, []);
 
