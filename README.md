@@ -79,6 +79,8 @@ If you would like to hardcode the `appId` and `serverUrl`, go to `src/index.js` 
 
 - Run the project
 
+If you would like to follow the Youtube tutorial and get an empty template instead, go to the `empty-project` branch instead.
+
 ```bash
 # NPM
 npm run start
