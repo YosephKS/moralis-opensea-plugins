@@ -56,3 +56,5 @@ Once the building process is completed (whether locally or remotely in CI/CD), d
 ---
 
 ### License
+
+[GNU GPL v3.0](https://github.com/YosephKS/moralis-opensea-plugins/blob/main/LICENSE)
