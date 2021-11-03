@@ -4,6 +4,14 @@ This repository contains the code for the Moralis OpenSea Youtube tutorial. It i
 
 ---
 
+## Table of Contents
+
+- [Pre-requisites](https://github.com/YosephKS/moralis-opensea-plugins#1-pre-requisites)
+- [Getting Started](https://github.com/YosephKS/moralis-opensea-plugins#2-getting-started)
+- [Production](https://github.com/YosephKS/moralis-opensea-plugins#3-production)
+
+---
+
 ## 1. Pre-requisites
 
 - Node.js
