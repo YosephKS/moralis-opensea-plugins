@@ -36,7 +36,48 @@ If you have not signed up to Moralis yet, click [here](https://admin.moralis.io/
 
 ## 2. Getting Started
 
+- Clone Project
 
+```bash
+git clone https://github.com/YosephKS/moralis-opensea-plugins.git
+```
+
+- Install Dependencies
+
+```bash
+# NPM
+npm i
+
+# Yarn
+yarn
+```
+
+- Add Moralis `appId` and `serverUrl`
+
+Create a `.env` file by copying `.env.example` and fill in these environment variables.
+
+```
+REACT_APP_MORALIS_APP_ID=xxx
+REACT_APP_MORALIS_SERVER_URL=xxx
+```
+
+If you would like to hardcode the `appId` and `serverUrl`, go to `src/index.js` and place those variables directly in the file.
+
+```js
+<MoralisProvider appId="xxx" serverUrl="xxx">
+	<App />
+</MoralisProvider>
+```
+
+- Run the project
+
+```bash
+# NPM
+npm run start
+
+# Yarn
+yarn start
+```
 ---
 
 ## 3. Production
