@@ -1,8 +1,17 @@
 # Moralis OpenSea Plugins
 
-This repository contains the code for the Moralis OpenSea Youtube tutorial. It is a simple implementation of an NFT Marketplace dApp using React framework, mainly to showcase the simplicity of using Moralis OpenSea Plugin.
+This repository contains the code for the [Moralis OpenSea Youtube tutorial](https://www.youtube.com/watch?v=r2YFhfjIb3k&t=35s). It is a simple implementation of an NFT Marketplace dApp using React framework, mainly to showcase the simplicity of using Moralis OpenSea Plugin.
 
 ---
+
+## Deployment
+
+- IPFS (Fleek): [https://moralis-opensea-plugins.on.fleek.co/](https://moralis-opensea-plugins.on.fleek.co/)
+
+## Branches
+
+- [main](https://github.com/YosephKS/moralis-opensea-plugins/tree/main): This is the end result of the project
+- [empty-project](https://github.com/YosephKS/moralis-opensea-plugins/tree/empty-project): This branch is suitable for those who want to follow the Youtube tutorial
 
 ## Table of Contents
 
