@@ -6,9 +6,20 @@ This repository contains the code for the [Moralis OpenSea Youtube tutorial](htt
 
 ## Table of Contents
 
-- [Pre-requisites](https://github.com/YosephKS/moralis-opensea-plugins#1-pre-requisites)
-- [Getting Started](https://github.com/YosephKS/moralis-opensea-plugins#2-getting-started)
+- [Deployment](https://github.com/YosephKS/moralis-opensea-plugins#deployment)
+- [Branches](https://github.com/YosephKS/moralis-opensea-plugins#branches)
+- [Pre-requisites](https://github.com/YosephKS/moralis-opensea-plugins#pre-requisites)
+	- [Node.js](https://github.com/YosephKS/moralis-opensea-plugins#1-nodejs)
+	- [NPM/Yarn](https://github.com/YosephKS/moralis-opensea-plugins#2-npmyarn)
+	- [Moralis Account](https://github.com/YosephKS/moralis-opensea-plugins#3-moralis-account)
+- [Getting Started](https://github.com/YosephKS/moralis-opensea-plugins#getting-started)
+	- [Clone Project](https://github.com/YosephKS/moralis-opensea-plugins#1-clone-project)
+	- [Install Dependencies](https://github.com/YosephKS/moralis-opensea-plugins#2-install-dependencies)
+	- [Add Moralis `appId` and `serverUrl`](https://github.com/YosephKS/moralis-opensea-plugins#3-add-moralis-appid-and-serverurl)
+	- [Run The Project](https://github.com/YosephKS/moralis-opensea-plugins#3-add-moralis-appid-and-serverurl)
 - [Production](https://github.com/YosephKS/moralis-opensea-plugins#3-production)
+- [Related Repository](https://github.com/YosephKS/moralis-opensea-plugins#related-repository)
+- [License](https://github.com/YosephKS/moralis-opensea-plugins#license)
 
 ---
 
@@ -90,7 +101,7 @@ If you would like to hardcode the `appId` and `serverUrl`, go to `src/index.js` 
 </MoralisProvider>
 ```
 
-#### 4. Run the project
+#### 4. Run The Project
 
 If you would like to follow the Youtube tutorial and get an empty template instead, go to the `empty-project` branch instead.
 
@@ -116,6 +127,12 @@ yarn build
 ```
 
 Once the building process is completed (whether locally or remotely in CI/CD), deploy the build version to your favorite hosting service.
+
+---
+
+### Related Repository
+
+- [truffle-opensea-nft](https://github.com/YosephKS/truffle-opensea-nft): Building NFTs (ERC721 & ERC1155) for OpenSea using Truffle, Moralis, and Openzeppelin
 
 ---
 
