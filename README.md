@@ -4,15 +4,6 @@ This repository contains the code for the [Moralis OpenSea Youtube tutorial](htt
 
 ---
 
-## Deployment
-
-- IPFS (Fleek): [https://moralis-opensea-plugins.on.fleek.co/](https://moralis-opensea-plugins.on.fleek.co/)
-
-## Branches
-
-- [main](https://github.com/YosephKS/moralis-opensea-plugins/tree/main): This is the end result of the project
-- [empty-project](https://github.com/YosephKS/moralis-opensea-plugins/tree/empty-project): This branch is suitable for those who want to follow the Youtube tutorial
-
 ## Table of Contents
 
 - [Pre-requisites](https://github.com/YosephKS/moralis-opensea-plugins#1-pre-requisites)
@@ -21,9 +12,22 @@ This repository contains the code for the [Moralis OpenSea Youtube tutorial](htt
 
 ---
 
-## 1. Pre-requisites
+### Deployment
 
-- Node.js
+- IPFS (Fleek): [https://moralis-opensea-plugins.on.fleek.co/](https://moralis-opensea-plugins.on.fleek.co/)
+
+---
+
+### Branches
+
+- [main](https://github.com/YosephKS/moralis-opensea-plugins/tree/main): This is the end result of the project
+- [empty-project](https://github.com/YosephKS/moralis-opensea-plugins/tree/empty-project): This branch is suitable for those who want to follow the Youtube tutorial
+
+---
+
+### Pre-requisites
+
+#### 1. Node.js
 
 Check whether you have Node.js in your machine with the following command, otherwise click [here](https://nodejs.org/en/) to install it.
 
@@ -31,7 +35,7 @@ Check whether you have Node.js in your machine with the following command, other
 node -v
 ```
 
-- NPM/Yarn
+#### 2. NPM/Yarn
 
 If you have installed Node.js in your machine, NPM will already be installed along with it. Check whether NPM is installed within your machine with the following command. 
 
@@ -45,21 +49,21 @@ Otherwise, if you want to use Yarn as your package manager. Go to its [official 
 yarn -v
 ```
 
-- Moralis Account
+#### 3. Moralis Account
 
 If you have not signed up to Moralis yet, click [here](https://admin.moralis.io/register) to register and get your free Moralis Admin account in just a few minutes!
 
 ---
 
-## 2. Getting Started
+### Getting Started
 
-- Clone Project
+#### 1. Clone Project
 
 ```bash
 git clone https://github.com/YosephKS/moralis-opensea-plugins.git
 ```
 
-- Install Dependencies
+#### 2. Install Dependencies
 
 ```bash
 # NPM
@@ -69,7 +73,7 @@ npm i
 yarn
 ```
 
-- Add Moralis `appId` and `serverUrl`
+#### 3. Add Moralis `appId` and `serverUrl`
 
 Create a `.env` file by copying `.env.example` and fill in these environment variables.
 
@@ -86,7 +90,7 @@ If you would like to hardcode the `appId` and `serverUrl`, go to `src/index.js` 
 </MoralisProvider>
 ```
 
-- Run the project
+#### 4. Run the project
 
 If you would like to follow the Youtube tutorial and get an empty template instead, go to the `empty-project` branch instead.
 
@@ -99,7 +103,7 @@ yarn start
 ```
 ---
 
-## 3. Production
+### Production
 
 To use the code for production, compile the build version and run the following command
 
